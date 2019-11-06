@@ -12,7 +12,6 @@ app = Flask(__name__)
 def cidade(nome_da_cidade):
 
     req = requests.get('http://pibdascidades.herokuapp.com/pib', params={'cidade': nome_da_cidade})
-    print(req.content.decode())
     city = json.loads(req.content.decode())['data']
 
     return render_template('cidades.html', city=city)
@@ -20,8 +19,8 @@ def cidade(nome_da_cidade):
 
 @app.route('/')
 def index():
-    return render_template('index.html', hello='Hello World')
-
+    # return render_template('index.html', hello='Hello World')
+    return redirect(url_for('nome_cidade'))
 
 @app.route('/nome_cidade', methods=['GET', 'POST'])
 def nome_cidade():
