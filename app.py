@@ -9,8 +9,9 @@ app = Flask(__name__)
 @app.route('/cidade/<nome_da_cidade>')
 def cidade(nome_da_cidade):
 
-    req = requests.get('http://pibdascidades.herokuapp.com/pib?cidade={}'.format(nome_da_cidade))
-    city = json.loads(req.content.decode())
+    req = requests.get('http://pibdascidades.herokuapp.com/pib', params={'cidade': nome_da_cidade})
+    print(req.content.decode())
+    city = json.loads(req.content.decode())['data']
 
     return render_template('cidades.html', city=city)
 
