@@ -22,6 +22,7 @@ def cidade(nome_da_cidade):
 #     # return render_template('index.html', hello='Hello World')
 #     return redirect(url_for('nome_cidade'))
 
+
 @app.route('/', methods=['GET', 'POST'])
 def nome_cidade():
     if request.method == 'POST':
