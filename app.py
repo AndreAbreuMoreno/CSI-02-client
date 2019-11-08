@@ -46,13 +46,16 @@ def nome_cidade():
     if request.method == 'POST':
         nome_da_cidade = request.form.get('nome_da_cidade')
         return redirect(url_for('cidade', nome_da_cidade=nome_da_cidade))
-    return render_template('nome_cidade.html')
+    return render_template('home.html')
 
 
-@app.route('/')
-def index():
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
 
-    return render_template('index.html')
+# @app.route('/')
+# def index():
+#     return render_template('home.html')
 
 
 if __name__ == '__main__':
